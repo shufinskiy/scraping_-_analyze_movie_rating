@@ -5,8 +5,8 @@ library(reshape)
 library(ggthemes)
 
 # Загрузка данных
-kp <- fread("F:/dataset/movie/kinopoisk.csv")
-imdb <- fread("F:/dataset/movie/imdb_db.csv")
+kp <- fread("./data/kinopoisk.csv")
+imdb <- fread("./data/imdb_db.csv")
 
 # Удаление дубликатов
 table <- imdb %>%
