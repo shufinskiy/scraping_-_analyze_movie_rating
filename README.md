@@ -156,6 +156,8 @@ gg <- ggplot(table, aes(x = DELTA)) +
         axis.text = element_text(size = 6))
 ```
 
+![](data/hist_movie.jpeg)
+
 ```r
 # t-test для оценок
 t_table <- table %>%
