@@ -17,8 +17,8 @@ table2 <- table[which(duplicated(table$NAME)),]
 table <- table %>%
   anti_join(table2)
 
-# Удаление фильма "Одержимость"
-table <- table[-1704,]
+# Удаление фильмов "Одержимость" и "Кухня"
+table <- table[-с(1196,1704),]
 
 # Переименование и удаление столбцов
 table <- table %>%
