@@ -181,6 +181,8 @@ gg1 <- ggplot(table, aes(x = VOTES_KP, y = DELTA)) +
         axis.text = element_text(size = 6))
 ```
 
+![](pictures/votes_movie.jpeg)
+
 ```r
 # Сравнение оценок по жанрам фильма для жанров на Кинопоиске
 # Удаление столбца GENRE_IMDB
@@ -222,6 +224,8 @@ gg2 <- ggplot(table_genre, aes(x = RATING, y = GENRE, size = COUNT, colour = COU
         axis.ticks = element_blank())
 ```
 
+![](pictures/genre_movie_kp.jpeg)
+
 ```r
 # Сравнение оценок по жанрам фильма для жанров на IMDB
 # Удаление столбца GENRE_KP
@@ -262,3 +266,5 @@ gg3 <- ggplot(table_genre1, aes(x = RATING, y = GENRE, size = COUNT, colour = CO
         legend.title = element_text(size = 7),
         axis.ticks = element_blank())
 ```
+
+![](pictures/genre_movie_imdb.jpeg)
