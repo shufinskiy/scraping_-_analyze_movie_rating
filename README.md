@@ -101,6 +101,15 @@ print(page)
   table <- do.call(rbind.data.frame, table)
 ```
 
+|NAME|	RATING|	VOTES|	GENRE|	YEAR|
+|---|---|---|---|---|
+|зеленая книга|	8.324|	137042|	комедия, драма, биография|	2018|
+|они никогда не станут старше|	8.227|	1942|	документальный, военный, история|	2018|
+|фрисоло|	8.18|	1291|	документальный, спорт|	2018|
+|хильда|	8.167|	1678|	мультфильм, фэнтези, комедия|	2018|
+|капернаум|	8.146|	12884|	драма|	2018|
+
+
 ### Web-scraping с сайта IMDB.com
 
 Аналогично создаём функцию для парсинга сайта IMDB (код в файле scraping_imdb.R)
@@ -147,7 +156,7 @@ gg <- ggplot(table, aes(x = DELTA)) +
         axis.text = element_text(size = 6))
 ```
 
-```r, echo= FALSE, message=FALSE
+```r
 # t-test для оценок
 t_table <- table %>%
   select(RATING_IMDB, RATING_KP) %>%
@@ -156,7 +165,9 @@ t_table <- table %>%
 t.test(t_table$value ~ t_table$site)
 ```
 
-```r, echo= FALSE, message=FALSE}
+![](https://habrastorage.org/webt/vp/rj/fx/vprjfxr7f_dczpyl3dgcdcxfx2m.png)
+
+```r
 gg1 <- ggplot(table, aes(x = VOTES_KP, y = DELTA)) +
   geom_point() +
   labs(title = "Диаграмма рассеяния разницы в оценках\n в зависимости от числа голосов на Кинопоиске",
