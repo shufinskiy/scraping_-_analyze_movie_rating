@@ -6,7 +6,8 @@ library(jsonlite)
 library(tidyverse)
 
 # ПРИМЕЧАНИЕ: Кинопоиск блокирует множественные запросы, поэтому 
-# запускайте данный код для не более чем 4 лет, например lapply(seq(2015, 2018)...
+# запускайте данный код для не более чем 4 лет, например lapply(seq(2015, 2018)
+# или используйте Sys.sleep() дляприостановки выполнения на заданное время
 kinopoisk <- lapply(seq(2010, 2018), function(m){
   # Получение url
   url <- paste0("https://www.kinopoisk.ru/top/navigator/m_act[year]/", m,"/m_act[rating]/1%3A/order/rating/perpage/200/page/1/#results")
@@ -31,6 +32,11 @@ kinopoisk <- lapply(seq(2010, 2018), function(m){
 
   table <- lapply(page, function(k){
     webpage <- read_html(k)
+    # Если вы хотите получить результат для более чем 4 лет,
+    # используйте функцию Sys.sleep(). C указанным значением времени задержки
+    # функция работает корректно. Возможно, можно указать и меньший промежуток времени.
+#    Sys.sleep(3)
+    
     # Получение названия фильмов
     # html_nodes - функция извлечения частей HTML-документа
     # с помощью css или XPath селекторов
